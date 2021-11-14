@@ -44,6 +44,12 @@ class _MyAppState extends State<MyApp> {
         port.sendPort, 'geofencing_send_port');
     port.listen((dynamic data) {
       print('Event: $data');
+      // FlutterRingtonePlayer.play( // this part will never be executed once the app is closed, the isolate will be in terminated state
+      //   android: AndroidSounds.alarm,
+      //   ios: IosSounds.alarm,
+      //   looping: true,
+      //   volume: 0.9,
+      // );
       setState(() {
         geofenceState = data;
       });
